@@ -1,0 +1,50 @@
+Reading(r1):
+  code: 400
+  temperature: 24.3
+  windSpeed: 12.2
+  windDirection: 290
+  pressure: 1004
+Reading(r2):
+  code: 200
+  temperature: 24.3
+  windSpeed: 14.5
+  windDirection: 45
+  pressure: 1006
+Reading(r3):
+  code: 500
+  temperature: 6.7
+  windSpeed: 24.3
+  windDirection: 237
+  pressure: 999
+Reading(r4):
+  code: 100
+  temperature: 15.2
+  windSpeed: 6.1
+  windDirection: 320
+  pressure: 1004
+Reading(r5):
+  code: 800
+  temperature: 14.4
+  windSpeed: 4.6
+  windDirection: 227
+  pressure: 1002
+Reading(r6):
+  code: 600
+  temperature: 16.8
+  windSpeed: 2.2
+  windDirection: 301
+  pressure: 1007
+
+Station(s1):
+  name: Dublin
+  readings:
+    - r1
+    - r2
+    - r3
+
+Station(s2):
+  name: Meath
+  readings:
+    - r4
+    - r5
+    - r6

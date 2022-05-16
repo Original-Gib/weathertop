@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  <h2 class="ui header">
+    ${station.name}
+  </h2>
+
+  <div class="ui tiny statistics">
+    <div class="mini statistic">
+      <div class="value">
+        ${station.name}
+      </div>
+      <div class="label">
+        Station
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        ${weatherCondition}
+      </div>
+      <div class="label">
+        Code
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        ${lastReading?.temperature?.round(1)} C </br>
+        ${fahrenheit?.round(1)} F
+      </div>
+      <div class="label">
+        <i class="thermometer icon"></i> Temperature
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+
+        ${beaufort} bft </br>
+        ${windDirection} </br>
+        Feels like: ${windChill?.round(1)} C
+      </div>
+      <div class="label">
+        <i class="flag icon"></i> Wind
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        ${lastReading?.pressure} hpa
+      </div>
+      <div class="label">
+        <i class="cloudscale icon"></i> Pressure
+      </div>
+    </div>
+  </div>
+  #{listreadings station:station /}
+  #{addreading station:station /}
+</section>
