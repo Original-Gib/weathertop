@@ -48,3 +48,20 @@ Station(s2):
     - r4
     - r5
     - r6
+
+
+Member(m1):
+  firstName: homer
+  lastName: simpson
+  email: homer@simpson.com
+  password: secret
+  stations:
+  - s1
+
+Member(m2):
+  firstName: marge
+  lastName: simpson
+  email: marge@simpson.com
+  password: secret
+  stations:
+  - s2
