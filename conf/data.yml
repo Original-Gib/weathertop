@@ -37,6 +37,8 @@ Reading(r6):
 
 Station(s1):
   name: Dublin
+  latitude: 53.343
+  longitude: -6.256
   readings:
     - r1
     - r2
@@ -44,6 +46,8 @@ Station(s1):
 
 Station(s2):
   name: Meath
+  latiude: 53.689
+  longitude: -6.471
   readings:
     - r4
     - r5

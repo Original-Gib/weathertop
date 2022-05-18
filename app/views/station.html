@@ -4,56 +4,60 @@
 #{menu id:"dashboard"/}
 
 <section class="ui segment">
+
   <h2 class="ui header">
     ${station.name}
   </h2>
 
-  <div class="ui tiny statistics">
-    <div class="mini statistic">
-      <div class="value">
+  <div class="ui horizontal segments">
+    <div class="ui inverted segment">
+      <h2>
         ${station.name}
-      </div>
-      <div class="label">
-        Station
-      </div>
+      </h2>
+      <p>
+        Lat: ${station.latitude} </br>
+        Long: ${station.longitude}
+      </p>
     </div>
-    <div class="statistic">
-      <div class="value">
+    <div class="ui segment">
+      <h2>
+        Weather
+      </h2>
+      <p>
         ${weatherCondition}
-      </div>
-      <div class="label">
-        Code
-      </div>
+      </p>
     </div>
-    <div class="statistic">
-      <div class="value">
+    <div class="ui inverted segment">
+      <h2>
+        Temperature
+      </h2>
+      <p>
         ${lastReading?.temperature?.round(1)} C </br>
         ${fahrenheit?.round(1)} F
-      </div>
-      <div class="label">
-        <i class="thermometer icon"></i> Temperature
-      </div>
+      </p>
     </div>
-    <div class="statistic">
-      <div class="value">
-
+    <div class="ui segment">
+      <h2>
+        Wind
+      </h2>
+      <p>
         ${beaufort} bft </br>
         ${windDirection} </br>
         Feels like: ${windChill?.round(1)} C
-      </div>
-      <div class="label">
-        <i class="flag icon"></i> Wind
-      </div>
+      </p>
     </div>
-    <div class="statistic">
-      <div class="value">
+    <div class="ui inverted segment">
+      <h2>
+        Pressure
+      </h2>
+      <p>
         ${lastReading?.pressure} hpa
-      </div>
-      <div class="label">
-        <i class="cloudscale icon"></i> Pressure
-      </div>
+      </p>
     </div>
   </div>
+
+</section>
+
   #{listreadings station:station /}
   #{addreading station:station /}
 </section>

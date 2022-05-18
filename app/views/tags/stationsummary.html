@@ -1,0 +1,57 @@
+
+#{list items: _member.stations, as:'station'}
+<section class="ui segment">
+
+    <h2 class="ui header">
+        ${station.name}
+    </h2>
+
+    <div class="ui horizontal segments">
+        <div class="ui inverted segment">
+            <h2>
+                ${station.name}
+            </h2>
+            <p>
+                Lat: ${station.latitude} </br>
+                Long: ${station.longitude}
+            </p>
+        </div>
+        <div class="ui segment">
+            <h2>
+                Weather
+            </h2>
+            <p>
+                ${weatherCondition}
+            </p>
+        </div>
+        <div class="ui inverted segment">
+            <h2>
+                Temperature
+            </h2>
+            <p>
+                ${lastReading?.temperature?.round(1)} C </br>
+                ${fahrenheit?.round(1)} F
+            </p>
+        </div>
+        <div class="ui segment">
+            <h2>
+                Wind
+            </h2>
+            <p>
+                ${beaufort} bft </br>
+                ${windDirection} </br>
+                Feels like: ${windChill?.round(1)} C
+            </p>
+        </div>
+        <div class="ui inverted segment">
+            <h2>
+                Pressure
+            </h2>
+            <p>
+                ${lastReading?.pressure} hpa
+            </p>
+        </div>
+    </div>
+
+</section>
+#{/list}
