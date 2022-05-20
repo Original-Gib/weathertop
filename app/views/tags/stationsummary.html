@@ -24,7 +24,9 @@
             </h2>
             <p>
                 ${station.latestTemperature().round(1)} C </br>
-                ${station.celciusToFahrenheit().round(1)} F
+                ${station.celciusToFahrenheit().round(1)} F </br>
+                Min: ${station.minTemperature().round(1)} C </br>
+                Max: ${station.maxTemperature().round(1)} C
             </p>
         </div>
         <div class="ui segment">
@@ -34,7 +36,9 @@
             <p>
                 ${station.beaufortConversion()} bft </br>
                 ${station.windDirectionCompass()} </br>
-                Feels like: ${station.calculateWindChill().round(1)} C
+                Feels like: ${station.calculateWindChill().round(1)} C </br>
+                Min: ${station.minWindSpeed()} </br>
+                Max: &{station.maxWindSpeed()}
             </p>
         </div>
         <div class="ui inverted segment">
@@ -42,7 +46,9 @@
                 Pressure
             </h2>
             <p>
-                ${station.lastReadingPressure()} hpa
+                ${station.lastReadingPressure()} hpa </br>
+                Min: ${station.minPressure()} </br>
+                Max: ${station.maxPressure()}
             </p>
         </div>
     </div>

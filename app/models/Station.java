@@ -232,6 +232,94 @@ public class Station extends Model{
         }
     }
 
+    public double minTemperature(){
+        if(readings.size() != 0) {
+            double minTemperature = readings.get(0).temperature;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).temperature < minTemperature) {
+                    minTemperature = readings.get(i).temperature;
+                }
+            }
+            return minTemperature;
+        } else {
+            double fallBack = 0.0;
+            return fallBack;
+        }
+    }
 
+    public double maxTemperature(){
+        if(readings.size() != 0) {
+            double maxTemperature = readings.get(0).temperature;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).temperature > maxTemperature) {
+                    maxTemperature = readings.get(i).temperature;
+                }
+            }
+            return maxTemperature;
+        } else {
+            double fallBack = 0;
+            return fallBack;
+        }
+    }
+
+    public double minWindSpeed(){
+        if (readings.size() != 0) {
+            double minWindSpeed = readings.get(0).windSpeed;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).windSpeed < minWindSpeed) {
+                    minWindSpeed = readings.get(i).windSpeed;
+                }
+            }
+            return minWindSpeed;
+        } else {
+            double fallBack = 0;
+            return fallBack;
+        }
+    }
+
+    public double maxWindSpeed(){
+        if (readings.size() != 0) {
+            double maxWindSpeed = readings.get(0).windSpeed;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).windSpeed > maxWindSpeed) {
+                    maxWindSpeed = readings.get(i).windSpeed;
+                }
+            }
+            return maxWindSpeed;
+        } else {
+            double fallBack = 0;
+            return fallBack;
+        }
+    }
+
+    public int maxPressure(){
+        if (readings.size() != 0) {
+            int maxPressure = readings.get(0).pressure;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).pressure > maxPressure) {
+                    maxPressure = readings.get(i).pressure;
+                }
+            }
+            return maxPressure;
+        } else {
+            int fallBack = 0;
+            return fallBack;
+        }
+    }
+
+    public int minPressure(){
+        if (readings.size() != 0) {
+            int minPressure = readings.get(0).pressure;
+            for (int i = 0; i < readings.size(); i++) {
+                if (readings.get(i).pressure < minPressure) {
+                    minPressure = readings.get(i).pressure;
+                }
+            }
+            return minPressure;
+        } else {
+            int fallBack = 0;
+            return fallBack;
+        }
+    }
 
 }
