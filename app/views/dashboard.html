@@ -12,7 +12,9 @@
     ${station.name}
   </h2>
 
+  #{if station.readings.size() != 0}
   #{stationsummary station:station /}
+  #{/if}
 
   <a href="/stations/${station.id}"><button class="ui tiny button"><i class="folder open icon"></i></button></a>
   <a href="/dashboard/deletestation/${station.id}" class="ui tiny red button"><i class="trash alternate icon"></i></a>

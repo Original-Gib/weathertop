@@ -10,7 +10,9 @@
   </h2>
 
 
+  #{if station.readings.size() != 0}
   #{stationsummary station:station /}
+  #{/if}
   #{listreadings station:station /}
   #{addreading station:station /}
 </section>

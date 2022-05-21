@@ -57,6 +57,17 @@ public class Station extends Model{
         this.readings = readings;
     }
 
+    public Reading latestReading(){
+        if(readings.size() != 0) {
+            int index = readings.size() - 1;
+            Reading latestReading = readings.get(index);
+            return latestReading;
+        } else {
+            Reading reading = null;
+            return reading;
+        }
+    }
+
     public String latestWeatherCondition(){
         if (readings.size() != 0) {
             int index = readings.size() - 1;

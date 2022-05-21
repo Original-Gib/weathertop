@@ -1,26 +1,53 @@
 
+
 #{list items: _station, as:'station'}
-    <div class="ui horizontal segments">
+<div class="ui horizontal segments" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         <div class="ui inverted segment">
             <h2>
-                ${station.name}
+
+                ${station.name} <em data-emoji=":round_pushpin:" class="small"></em>
             </h2>
             <p>
                 Lat: ${station.latitude} </br>
                 Long: ${station.longitude}
             </p>
+
+
         </div>
         <div class="ui segment">
             <h2>
                 Weather
+
+                #{if station.readings.size() != 0 && station.latestReading().code == 100}
+                <em data-emoji=":sunny:" class="small"></em>
+                #{/if} #{elseif station.readings.size() != 0 && station.latestReading().code == 200}
+                <em data-emoji=":white_sun_small_cloud:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 300}
+                <em data-emoji=":cloud:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 400}
+                <em data-emoji=":white_sun_rain_cloud:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 500}
+                <em data-emoji=":umbrella:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 600}
+                <em data-emoji=":cloud_rain:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 700}
+                <em data-emoji=":snowflake:" class="small"></em>
+                #{/elseif} #{elseif station.readings.size() != 0 && station.latestReading().code == 800}
+                <em data-emoji=":thunder_cloud_rain:" class="small"></em>
+                #{/elseif} #{else}
+                <p>No readings</p>
+                #{/else}
             </h2>
             <p>
                 ${station.latestWeatherCondition()}
             </p>
+
+
+
         </div>
         <div class="ui inverted segment">
             <h2>
-                Temperature
+                Temperature <em data-emoji=":thermometer:" class="small"></em>
             </h2>
             <p>
                 ${station.latestTemperature().round(1)} C </br>
@@ -28,10 +55,12 @@
                 Min: ${station.minTemperature().round(1)} C </br>
                 Max: ${station.maxTemperature().round(1)} C
             </p>
+
+
         </div>
         <div class="ui segment">
             <h2>
-                Wind
+                Wind <em data-emoji=":wind_blowing_face:" class="small"></em>
             </h2>
             <p>
                 ${station.beaufortConversion()} bft </br>
@@ -43,7 +72,7 @@
         </div>
         <div class="ui inverted segment">
             <h2>
-                Pressure
+                Pressure <em data-emoji=":cyclone:" class="small"></em>
             </h2>
             <p>
                 ${station.lastReadingPressure()} hpa </br>
