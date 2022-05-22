@@ -56,6 +56,19 @@
                 Max: ${station.maxTemperature().round(1)} C
             </p>
 
+            #{if station.readings.size() >= 3}
+                #{if station.upwardTrendTemperature() == true}
+                    <p><i class="arrow up green large icon"></i></p>
+                #{/if}
+                #{if station.downwardTrendTemperature() == true}
+                    <p><i class="arrow down red large icon"></i></p>
+                #{/if}
+                #{if station.upwardTrendTemperature() == false && station.downwardTrendTemperature() == false}
+                    <p><i class="arrow right large icon"></i></p>
+                #{/if}
+            #{/if}
+
+
 
         </div>
         <div class="ui segment">
@@ -69,6 +82,20 @@
                 Min: ${station.minWindSpeed()} </br>
                 Max: &{station.maxWindSpeed()}
             </p>
+
+            #{if station.readings.size() >= 3}
+            #{if station.upwardTrendWind() == true}
+            <p><i class="arrow up green large icon"></i></p>
+            #{/if}
+            #{if station.downwardTrendWind() == true}
+            <p><i class="arrow down red large icon"></i></p>
+            #{/if}
+            #{if station.upwardTrendWind() == false && station.downwardTrendWind() == false}
+            <p><i class="arrow right large icon"></i></p>
+            #{/if}
+            #{/if}
+
+
         </div>
         <div class="ui inverted segment">
             <h2>
@@ -79,6 +106,18 @@
                 Min: ${station.minPressure()} </br>
                 Max: ${station.maxPressure()}
             </p>
+
+            #{if station.readings.size() >= 3}
+            #{if station.upwardTrendPressure() == true}
+            <p><i class="arrow up green large icon"></i></p>
+            #{/if}
+            #{if station.downwardTrendPressure() == true}
+            <p><i class="arrow down red large icon"></i></p>
+            #{/if}
+            #{if station.upwardTrendPressure() == false && station.downwardTrendPressure() == false}
+            <p><i class="arrow right large icon"></i></p>
+            #{/if}
+            #{/if}
         </div>
     </div>
 #{/list}

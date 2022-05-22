@@ -333,4 +333,76 @@ public class Station extends Model{
         }
     }
 
+    public boolean upwardTrendTemperature(){
+        int index = readings.size() -1;
+        double temperatureOne = readings.get(index).temperature;
+        double temperatureTwo = readings.get(index-1).temperature;
+        double temperatureThree = readings.get(index-2).temperature;
+        if ((temperatureTwo < temperatureOne) && (temperatureThree < temperatureTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean downwardTrendTemperature(){
+        int index = readings.size() -1;
+        double temperatureOne = readings.get(index).temperature;
+        double temperatureTwo = readings.get(index-1).temperature;
+        double temperatureThree = readings.get(index-2).temperature;
+        if ((temperatureTwo > temperatureOne) && (temperatureThree > temperatureTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean upwardTrendWind(){
+        int index = readings.size() -1;
+        double windSpeedOne = readings.get(index).windSpeed;
+        double windSpeedTwo = readings.get(index-1).windSpeed;
+        double windSpeedThree = readings.get(index-2).windSpeed;
+        if ((windSpeedTwo < windSpeedOne) && (windSpeedThree < windSpeedTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean downwardTrendWind(){
+        int index = readings.size() -1;
+        double windSpeedOne = readings.get(index).windSpeed;
+        double windSpeedTwo = readings.get(index-1).windSpeed;
+        double windSpeedThree = readings.get(index-2).windSpeed;
+        if ((windSpeedTwo > windSpeedOne) && (windSpeedThree > windSpeedTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean upwardTrendPressure(){
+        int index = readings.size() -1;
+        double pressureOne = readings.get(index).pressure;
+        double pressureTwo = readings.get(index-1).pressure;
+        double pressureThree = readings.get(index-2).pressure;
+        if ((pressureTwo < pressureOne) && (pressureThree < pressureTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean downwardTrendPressure(){
+        int index = readings.size() -1;
+        double pressureOne = readings.get(index).pressure;
+        double pressureTwo = readings.get(index-1).pressure;
+        double pressureThree = readings.get(index-2).pressure;
+        if ((pressureTwo > pressureOne) && (pressureThree > pressureTwo)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
