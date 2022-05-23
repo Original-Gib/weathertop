@@ -2,10 +2,20 @@ package controllers;
 
 import jdk.internal.net.http.common.Log;
 import models.Member;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
 
+import java.util.List;
+
 public class Accounts extends Controller {
+
+    public static void index() {
+
+        Member member = Accounts.getLoggedInMember();
+        Logger.info("Rendering Account info");
+        render ("account.html", member);
+    }
 
     public static void signup(){
 
@@ -55,5 +65,17 @@ public class Accounts extends Controller {
             login();
         }
         return member;
+    }
+
+    public static void editDetails(String firstname, String lastname, String email, String password) {
+
+        Logger.info("Editing member details: " + email);
+        Member member = Accounts.getLoggedInMember();
+        member.setFirstName(firstname);
+        member.setLastName(lastname);
+        member.setEmail(email);
+        member.setPassword(password);
+        member.save();
+        redirect("/account");
     }
 }
