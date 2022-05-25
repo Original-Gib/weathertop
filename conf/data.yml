@@ -1,34 +1,40 @@
 Reading(r1):
+  formattedTime: 01-05-2022 08:31:00
   code: 400
   temperature: 24.3
   windSpeed: 12.2
   windDirection: 290
   pressure: 1004
 Reading(r2):
+  formattedTime: 02-05-2022 18:42:00
   code: 200
   temperature: 24.3
   windSpeed: 14.5
   windDirection: 45
   pressure: 1006
 Reading(r3):
+  formattedTime: 03-05-2022 14:42:00
   code: 500
   temperature: 6.7
   windSpeed: 24.3
   windDirection: 237
   pressure: 999
 Reading(r4):
+  formattedTime: 05-05-2022 16:04:00
   code: 100
   temperature: 15.2
   windSpeed: 6.1
   windDirection: 320
   pressure: 1004
 Reading(r5):
+  formattedTime: 05-05-2022 11:31:00
   code: 800
   temperature: 14.4
   windSpeed: 4.6
   windDirection: 227
   pressure: 1002
 Reading(r6):
+  formattedTime: 07-05-2022 05:31:00
   code: 600
   temperature: 16.8
   windSpeed: 2.2
