@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,13 +9,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 import play.db.jpa.Model;
-import play.jobs.On;
 
 @Entity
 public class Station extends Model{
     public String name;
     public double latitude;
     public double longitude;
+    public HashMap<Integer, String> conditionMap;
 
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();
@@ -57,6 +58,25 @@ public class Station extends Model{
         this.readings = readings;
     }
 
+    private void fillConditionMap(){
+        conditionMap.put(100, "Clear");
+        conditionMap.put(200, "Partial Clouds");
+        conditionMap.put(300, "Cloudy");
+        conditionMap.put(400, "Light Showers");
+        conditionMap.put(500, "Heavy Showers");
+        conditionMap.put(600, "Rain");
+        conditionMap.put(700, "Thunder");
+        conditionMap.put(800, "Snow");
+    }
+
+    public String weatherCondition(){
+        conditionMap = new HashMap<Integer, String>();
+        fillConditionMap();
+        int code = latestWeatherCode();
+        String output = conditionMap.get(code);
+        return output;
+    }
+
     public Reading latestReading(){
         if(readings.size() != 0) {
             int index = readings.size() - 1;
@@ -68,43 +88,14 @@ public class Station extends Model{
         }
     }
 
-    public String latestWeatherCondition(){
+    public int latestWeatherCode(){
         if (readings.size() != 0) {
             int index = readings.size() - 1;
-            Reading reading = readings.get(index);
-            String weatherCondition = null;
-            switch (reading.code) {
-                case 100:
-                    weatherCondition = "Clear";
-                    break;
-                case 200:
-                    weatherCondition = "Partial Clouds";
-                    break;
-                case 300:
-                    weatherCondition = "Cloudy";
-                    break;
-                case 400:
-                    weatherCondition = "Light Showers";
-                    break;
-                case 500:
-                    weatherCondition = "Heavy Showers";
-                    break;
-                case 600:
-                    weatherCondition = "Rain";
-                    break;
-                case 700:
-                    weatherCondition = "Snow";
-                    break;
-                case 800:
-                    weatherCondition = "Thunder";
-                    break;
-                default:
-                    weatherCondition = "Invalid Reading";
-                    break;
-            }
-            return weatherCondition;
+            int latestWeatherCode = readings.get(index).code;
+            return latestWeatherCode;
         } else {
-            return null;
+            int fallback = 0;
+            return fallback;
         }
     }
 
