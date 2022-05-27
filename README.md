@@ -1,5 +1,6 @@
-# play-template-1
+# Weathertop
 
-This is a sample starter project for this course:
+This is a web app developed as a companion site for the Weathertop weather station.
 
-- [Web Development](https://tutors-design.netlify.com/course/wit-hdip-comp-sci-2020-web-development.netlify.com)
+Users have the ability to create profiles to track their own weather stations and to enter readings in each weather
+station.
